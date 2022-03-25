@@ -1,0 +1,71 @@
+
+	<%- include('.//partys/head.ejs') %>
+    
+
+	<%- include('.//partys/nav.ejs') %>
+
+
+  
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Contact Us</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<br><br><br><br><br>
+
+	<section class="ftco-section ftco-about">
+		<div class="container">
+		  <div class="row no-gutters">
+			<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/about.jpg);">
+			</div>
+			<div class="col-md-6 wrap-about ftco-animate">
+			  <div class="heading-section heading-section-white pl-md-5">
+			  
+				<h2 class="mb-4">Register</h2>
+	
+		  <form action="/users/signup" method="POST" class="bg-light p-5 contact-form">
+			<div class="form-group">
+			  <input type="text" name="name" class="form-control" placeholder="User">
+			</div>
+			
+			<div class="form-group">
+			  <input type="text" name="email"  class="form-control" placeholder="Email">
+				</div>
+
+				<div class="form-group">
+			<select   class="form-control" name="role">
+				<option>customer</option>
+				<option>officer</option>
+			</select>
+			  </div>
+
+			  <div class="form-group">
+				<input type="text" name="pass" class="form-control" placeholder="Password">
+			  </div>
+		  
+		  
+			<div class="form-group">
+			  
+			  <input type="submit" value="register" class="btn btn-primary py-3 px-6">
+			
+			</div>
+			</form>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </section>
+
+	  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
+	
+	
+
+    <%- include('.//partys/footer.ejs') %>

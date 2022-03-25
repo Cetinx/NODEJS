@@ -1,0 +1,258 @@
+<%- include('.//partys/head.ejs') %>
+
+<%- include('.//partys/nav.ejs') %>
+   
+  <% if(user) {  %> 
+  
+    <% if(user.role === 'customer') { %> 
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a>Dashboard > Customer</a></span></p>
+            <h1 class="mb-3 bread"><%=user.name  %> </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <br><br><br><br>
+
+    <div class="container">
+      <div class="row">        
+          <div class="col-md-12">
+
+                  <div class="col-md-9 float-left">
+                   <div class="row">
+                
+                    <% for (let i = (user.cars.length - 1); i >= 0 ; i--) { %> 
+                     <div class="col-md-4">
+                       <div class="car-wrap rounded ftco-animate">
+                       <div class="img rounded d-flex align-items-end" style="background-image: url(/images/car-1.jpg);">
+                       </div>
+                       <div class="text">
+                         <h2 class="mb-0"><a href="car-single.html"><%=user.cars[i].name %> </a></h2>
+                         <div class="d-flex mb-3">
+                           
+                           <p class="price ml-auto"><%=user.cars[i].buy %> <span>/day</span></p>
+                         </div>
+                         <button class="btn btn-success py-2 ml-1 w-100">24:00</button></p>
+                         <a href="/car/<%=user.cars[i].slug %>  " class="btn btn-info py-2 ml-1 w-100">Details</a></p>
+          
+                         <form method="POST" action="/car/deletes">
+                          <input type="hidden" name="carsDeleteID" value="<%=user.cars[i]._id %>">
+                          <button type="submit"  class="btn btn-danger py-2 ml-1  w-100">RELEASE</button>
+                         </form>
+                        </div>
+                     </div>
+                  </div>
+                  <% } %> 
+          
+                  </div>
+                 </div>
+
+                 <div class="col-md-3  float-left">
+               
+                  <div class="widget-categories" >
+                    <h3 class="widget-title">Categories</h3>
+                    <ul>
+                  
+                      <li><a href="/car?categories= "> adsasdasdds </a></li>
+               
+                                    
+                    </ul>
+                  </div>    
+
+                </div>
+                 
+           
+                
+             </div>
+         </div>       
+      </div>
+ 
+
+
+		<section class="ftco-section bg-light">
+
+    		<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+    <% } %> 
+
+
+  
+
+   
+
+    <% if(user.role === 'officer') { %> 
+
+      <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+              <p class="breadcrumbs"><span class="mr-2"><a>Dashboard > <%=user.role %> </a></span></p>
+              <h1 class="mb-3 bread"><%=user.name  %> </h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <br><br><br><br>
+      
+      <div class="container">
+      
+        <div class="row">    
+         <div  class="col-md-12 text-center ">
+           <button class="btn btn-md btn-info w-50" data-toggle="modal" data-target="#addCar">
+               CREATE NEW CAR
+            </button>
+         </div>
+         <br><br><br><br>
+            <div class="col-md-12">
+
+          
+                    <div class="col-md-9 float-left">
+                     <div class="row">
+                  
+                      <% for (let i = (cars.length - 1); i >= 0 ; i--) { %> 
+                       <div class="col-md-4">
+                         <div class="car-wrap rounded ftco-animate">
+                         <div class="img rounded d-flex align-items-end" style="background-image: url(/images/car-1.jpg);">
+                         </div>
+                         <div class="text">
+                           <h2 class="mb-0"><a href="car-single.html"><%=cars[i].name%>  </a></h2>
+                           <div class="d-flex mb-3">
+                             
+                             <p class="price ml-auto"><%=cars[i].buy%> <span>/day</span></p>
+                           </div>
+                           <a href="/car/<%=cars[i].slug%> " class="btn btn-secondary py-2 ml-1 w-100">Details</a></p>
+                         </div>
+                       </div>
+                    </div>
+                      <% } %> 
+            
+                    </div>
+                   </div>
+  
+                   <div class="col-md-3  float-left">
+                 
+                    <div class="widget-categories" >
+                      <h3 class="widget-title">Categories</h3>
+                      <ul>
+                    
+                        <li><a href="/car?categories= "> adsasdasdds </a></li>
+                 
+                                      
+                      </ul>
+                    </div>    
+  
+                  </div>
+                   
+             
+                  
+               </div>
+           </div>       
+        </div>
+   
+  
+  
+      <section class="ftco-section bg-light">
+  
+          <div class="row mt-5">
+            <div class="col text-center">
+              <div class="block-27">
+                <ul>
+                  <li><a href="#">&lt;</a></li>
+                  <li class="active"><span>1</span></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">&gt;</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+   		<!-- ADD Modal -->
+<div class="modal fade" id="addCar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-body customer-box">
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="Login">
+						<form method="POST" action="/car" class="form-horizontal">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input type="text" name="name" class="form-control"  placeholder="Car Name">
+								</div>
+                <br>
+                <div class="col-sm-12">
+									<input type="text" name="desc" class="form-control"  placeholder="Car desc">
+								</div>
+                <br>
+                <div class="col-sm-12">
+									<input type="text" name="buy" class="form-control"  placeholder="Buy">
+								</div>
+                <br>
+                <div class="col-sm-12">
+                  <select   class="form-control" name="category">
+                    <% for (let index = 0; index <= (category.length - 1); index++) { %> 
+                    <option value="<%= category[index]._id %>"> <%= category[index].name %>  </option>               
+                    <% } %>                 
+                  </select>						
+								</div>
+                <br>
+                <div class="col-sm-12">
+									<input type="hidden" name="role"  value="<%=user.role %>">
+								</div>
+                <br>
+                <div class="col-sm-12">
+									<input type="hidden" name="user"  value="<%=user._id %>">
+								</div>
+                <div class="col-sm-12">
+                  <button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+										Submit
+									</button>
+                  <button type="submit" class="btn btn-light btn-radius btn-brd grd1"
+                  data-dismiss="modal" aria-hidden="true">
+                  Cancel
+                </button>
+								</div>
+
+
+               
+							</div>
+              </form>
+						</div>
+					</div>
+          
+                </div>
+              </div>
+            </div>
+          </div>
+
+      <% } %> 
+      <% } %> 
+	<%- include('.//partys/footer.ejs') %>
